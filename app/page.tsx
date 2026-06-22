@@ -1,9 +1,16 @@
-import Image from "next/image";
-import Test from "./test";
+import Navbar from "./components/navbar";
+import Footer from "./components/footer";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
+     <div className="min-h-screen flex flex-col">
+      <Navbar></Navbar>
+
+      <main className="flex-1 max-w-7xl mx-auto w-full px-6 py-8">
+
+      </main>
+
+      <Footer></Footer>
     </div>
   );
 }
