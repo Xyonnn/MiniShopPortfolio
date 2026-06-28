@@ -1,6 +1,6 @@
 import {Schema, models, model} from "mongoose";
 
-interface Car {
+export interface ICar {
     carID: number,
     name: string,
     price: number,
@@ -12,7 +12,7 @@ interface Car {
     createdAt?: Date
 }
 
-interface CarInfo{
+export interface ICarInfo{
     CarInfoID: number,
     brand: string,
     model: string,
@@ -29,7 +29,7 @@ interface CarInfo{
     description: string
 }
 
-const CarSchema = new Schema<Car>({
+const CarSchema = new Schema<ICar>({
     carID: {type: Number, required: true, unique: true},
     name: {type: String, required: true},
     price: {type: Number, required: true},
@@ -38,10 +38,9 @@ const CarSchema = new Schema<Car>({
     sale: {type: Boolean, required: true, default: false},
     salePercent: {type: Number, default: 0, min: 0, max: 100},
     available: {type:Boolean, default: true},
-    createdAt: {type: Date, default: Date.now}
 })
 
-const CarInfoSchema = new Schema<CarInfo>({
+const CarInfoSchema = new Schema<ICarInfo>({
     CarInfoID: {type: Number, required: true, unique: true},
     brand: {type: String, required: true},
     model: {type: String,  required: true},
@@ -62,6 +61,5 @@ const CarInfoSchema = new Schema<CarInfo>({
   }
 );
 
-const CarModel = models.Car || model<Car>("Car", CarSchema);
-
-export default CarModel;
+export const CarModel = models.Car || model<ICar>("Car", CarSchema);
+export const CarInfoModel = models.CarInfo || model<ICarInfo>("CarInfo", CarInfoSchema);
