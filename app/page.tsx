@@ -5,6 +5,7 @@ import { CarModel } from "@/models/shopItems";
 import { ICar } from "@/models/shopItems";
 import ProductCard from "./components/productCard";
 import { connectDB } from "@/lib/db";
+import Link from "next/link";
 
 
 export default async function Home() {
@@ -19,7 +20,9 @@ export default async function Home() {
       <main className="flex-1 max-w-7xl mx-auto w-full px-6 py-8">
         {
           cars.map((car) =>(
-            <ProductCard key={car.carID} car={car}></ProductCard>
+            <Link key={car.carID} href={`/products/${car.name}`}>
+              <ProductCard car={car}></ProductCard>
+            </Link>
           ))
         }
       </main>

@@ -13,15 +13,3 @@ export async function GET() {
     }
     
 }
-
-export async function POST(req: Request) {
-    try{
-        await connectDB();
-        const body = await req.json();
-        const newCar = await CarModel.create(body);
-
-        return NextResponse.json(JSON.parse(JSON.stringify(newCar)));
-    }catch(err){
-        return NextResponse.json({err: "Faild to post"}, {status: 500});
-    }
-}
