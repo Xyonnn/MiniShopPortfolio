@@ -4,6 +4,7 @@ export interface ICar {
     carID: number,
     name: string,
     price: number,
+    prodYear: number,
     src: string[],
     miniDescription: string,
     sale: boolean,
@@ -26,6 +27,7 @@ export interface ICarInfo{
     color: string,
     doorNum: number,
     sitsNum: number,
+    usage: string,
     description: string
 }
 
@@ -33,6 +35,7 @@ const CarSchema = new Schema<ICar>({
     carID: {type: Number, required: true, unique: true},
     name: {type: String, required: true},
     price: {type: Number, required: true},
+    prodYear: {type: Number, required: true},
     src: {type: [String], required: true},
     miniDescription: {type: String, required: true},
     sale: {type: Boolean, required: true, default: false},
@@ -54,6 +57,7 @@ const CarInfoSchema = new Schema<ICarInfo>({
     color: {type: String, required: true},
     doorNum: {type: Number, required: true},
     sitsNum: {type: Number, required: true},
+    usage: {type: String, required: true},
     description: {type: String, required: true},
   },
   {
