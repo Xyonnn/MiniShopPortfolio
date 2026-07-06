@@ -65,5 +65,5 @@ const CarInfoSchema = new Schema<ICarInfo>({
   }
 );
 
-export const CarModel = models.Car || model<ICar>("Car", CarSchema);
-export const CarInfoModel = models.CarInfo || model<ICarInfo>("CarInfo", CarInfoSchema);
+export const CarModel = models.Car || model<ICar>("Car", CarSchema, "Car");
+export const CarInfoModel = models.CarInfo || model<ICarInfo>("CarInfo", CarInfoSchema, "CarInfo");

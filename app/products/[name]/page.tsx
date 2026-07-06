@@ -5,8 +5,9 @@ import { connectDB } from "@/lib/db";
 import Navbar from "@/app/components/navbar";
 import Footer from "@/app/components/footer";
 
-
 type Props = {params: Promise<{name: string}>}
+
+export const dynamic = "force-dynamic";
 
 export default async function ProductDetailPage({params}: Props){
     const { name } = await params;
