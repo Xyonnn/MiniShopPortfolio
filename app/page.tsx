@@ -18,7 +18,7 @@ export default async function Home() {
      <div className="min-h-screen flex flex-col">
       <Navbar></Navbar>
 
-      <main className="flex-1 max-w-7xl mx-auto w-full px-6 py-8">
+      <main className="max-w-7xl mx-auto w-full px-6 py-8 grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {
           cars.map((car) =>(
             <Link key={car.carID} href={`/products/${car.name}`}>
